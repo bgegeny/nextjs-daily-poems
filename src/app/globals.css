@@ -1,3 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1, p {
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.header {
+    margin: 0 auto;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(30, 34, 32);
+    position: sticky;
+    align-self: flex-start;
+    top: 0;
+    overflow-y: auto;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+.hamburger-icon {
+    display: none;
+}
+
+.nav-menu > a {
+    padding: 0px 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .mobile-menu.active {
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px;
+    }
+
+    .top {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .hamburger-icon {
+        display: flex;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .hamburger-icon:hover {
+        background-color: #ffffff;
+        color: rgb(6, 39, 20);
+    }
+
+    .header {
+        margin: 0 auto;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: rgb(30, 34, 32);
+    }
+
+    .nav-menu {
+        display: none;
+    }
+}
+
+.logo {
+    font-size: 2em;
+}
+
+.content {
+    margin: 40px auto;
+    padding: 0 20px;
+}

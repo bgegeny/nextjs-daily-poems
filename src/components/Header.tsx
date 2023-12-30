@@ -1,24 +1,41 @@
+'use client';
 import Link from 'next/link';
 import React from 'react';
+import { FaBars } from "react-icons/fa";
 
 const Header: React.FC = () => {
-  return (
-    <div className="w-full absolute text-white z-10">
-      <nav
-        className="relative flex flex-wrap items-center justify-between mx-auto p-8"
-      >
-      <Link href="/" className="font-bond text-3xl">Default Page</Link>
-      <div
-        className="space-x-4 text-xl"
-      >
-        <Link href="/scale">Scale Page</Link>
-        <Link href="/reliability">Reliability Page</Link>
-        <Link href="/performance">Performance Page</Link>
-      </div>
-      </nav>
 
-    </div>
-  );
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <nav className='header'>
+            <div className="top">
+                <div className="logo">
+                    <Link href="/">Versindító</Link>
+                </div>
+                <div
+                    className="hamburger-icon"
+                >
+                    <FaBars
+                        size={30}
+                        onClick={() => {
+                            setIsOpen((prevState) => !prevState);
+                        }}
+                    />
+                </div>
+            </div>
+            <div
+                className={`mobile-menu ${isOpen ? 'active' : ''}`}
+            >
+                <Link href="/admin">Admin</Link>
+                <Link href="/contact">Kapcsolat</Link>
+            </div>
+            <div className="nav-menu">
+                <Link href="/admin">Admin</Link>
+                <Link href="/contact">Kapcsolat</Link>
+            </div>
+        </nav>
+    );
 };
-  
+
 export default Header;
